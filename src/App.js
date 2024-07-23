@@ -1,4 +1,3 @@
-import './App.css';
 import HorizontalScroll from './HorizontalScroll';
 
 function App() {

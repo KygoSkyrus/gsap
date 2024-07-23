@@ -20,57 +20,89 @@ import { PixiPlugin } from "gsap/PixiPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
 
 
-gsap.registerPlugin(useGSAP, Flip, ScrollTrigger, Observer, ScrollToPlugin, Draggable, MotionPathPlugin, EaselPlugin, PixiPlugin, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase);
+// gsap.registerPlugin(useGSAP, Flip, ScrollTrigger, Observer, ScrollToPlugin, Draggable, MotionPathPlugin, EaselPlugin, PixiPlugin, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase);
+gsap.registerPlugin(ScrollTrigger);
 
 
 const HorizontalScroll = () => {
 
     useEffect(() => {
-        let sections = gsap.utils.toArray(".panel");
 
-        // gsap.to(sections, {
-        //     xPercent: -100 * (sections.length - 1),
-        //     ease: "none",
+        let horizontalSection = document.querySelector('.horizontal');
+
+        console.log(horizontalSection.scrollWidth);
+
+        // gsap.to('.horizontal', {
+        //     x: () => horizontalSection.scrollWidth * -1,
+        //     xPercent: 100,
         //     scrollTrigger: {
-        //         trigger: ".container",
-        //         pin: true,
-        //         scrub: 1,
-        //         snap: 1 / (sections.length - 1),
-        //         end: () => "+=" + document.querySelector(".container").offsetWidth
+        //         trigger: '.horizontal',
+        //         start: 'center center',
+        //         end: '+=2000px',
+        //         pin: '#horizontal-scoll',
+        //         scrub: true,
+        //         invalidateOnRefresh: true
         //     }
         // });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+
+
 
     }, [])
 
     return (
         <>
-            <div class="firstContainer">
-                <h1>Testing horizontal scrolling w/ three sections</h1>
-                <h2>First Container</h2>
-            </div>
-            <div class="container">
-                <div class="description panel blue">
-                    <div>
-                        SCROLL DOWN
-                        <div class="scroll-down">
-                            <div class="arrow"></div>
+            <section class="intro">
+                <h1>Horizontal Scrolling Cards with GSAP</h1>
+            </section>
+
+            <section id="horizontal-scoll">
+                <div class="horizontal-scoll-wrapper">
+                    <div class="horizontal">
+                        <div>
+                            <div class="card">
+                                <h2>Card 1</h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Card 2</h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Card 3</h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Card 4</h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Card 5</h2>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <h2>Card 6</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <section class="panel red">
-                    ONE
-                </section>
-                <section class="panel orange">
-                    TWO
-                </section>
-                <section class="panel purple">
-                    THREE
-                </section>
-            </div>
-            <div class="lastContainer">
-                Last Container
-            </div>
+            <footer>
+                <div>
+                    <h2>Credits</h2>
+                    <a href="https://www.humming.design" target="_blank">Humming</a>
+                    <a href="https://greensock.com" target="_blank">GSAP</a>
+                </div>
+            </footer>
         </>
     )
 }
