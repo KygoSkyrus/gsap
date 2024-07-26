@@ -32,18 +32,25 @@ const HorizontalScroll = () => {
 
         console.log(horizontalSection.scrollWidth);
 
-        // gsap.to('.horizontal', {
-        //     x: () => horizontalSection.scrollWidth * -1,
-        //     xPercent: 100,
-        //     scrollTrigger: {
-        //         trigger: '.horizontal',
-        //         start: 'center center',
-        //         end: '+=2000px',
-        //         pin: '#horizontal-scoll',
-        //         scrub: true,
-        //         invalidateOnRefresh: true
-        //     }
-        // });
+        gsap.to('.horizontal', {
+            x: () => horizontalSection.scrollWidth * -1,
+            xPercent: 100,
+            scrollTrigger: {
+                trigger: '.horizontal',
+                start: 'center center',
+                end: '+=2000px',
+                pin: '#horizontal-scoll',
+                scrub: true,
+                invalidateOnRefresh: true
+            }
+        });
+
+        const cursor = document.querySelector('.cursor')
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px'
+            cursor.style.top = e.pageY + 'px'
+        })
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -55,8 +62,11 @@ const HorizontalScroll = () => {
 
     return (
         <>
+
+
             <section class="intro">
                 <h1>Horizontal Scrolling Cards with GSAP</h1>
+           <div class="cursor"></div>
             </section>
 
             <section id="horizontal-scoll">

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="100vw" height="100vh">
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas')
+        const ctx = canvas.getContext('2d')
+        
+        // canvas sizing
+        const resizeCanvas = () => {
+            canvas.height = window.innerHeight - 10
+            canvas.width = window.innerWidth
+        }
+
+        const circleRadius = 1.5
+        const circleSpacing = 20
+        const canvasPadding = 20
+        const spaceForOneCircle = (2 * circleRadius + circleSpacing)
+
+        const drawCircle = (x, y, size) => {
+            ctx.save()
+            ctx.translate(x, y)
+            ctx.beginPath()
+            ctx.arc(0, 0, size ? Math.max(size, 1.5) : circleRadius, 0, Math.PI * 2, true)
+            ctx.fillStyle = '#1a1a1a'
+            ctx.fill()
+            ctx.closePath()
+            ctx.resetTransform()
+        }
+
+        const calcRadius = (cursorPosX, cursorPosY, circleX, circleY) => {
+            if (cursorPosX !== NaN) {
+                const distanceFromCursor = (Math.sqrt((cursorPosX - circleX) ** 2 + (cursorPosY - circleY) ** 2))
+                const ringNumber = Math.floor(distanceFromCursor / spaceForOneCircle)
+                if (ringNumber < 10) {
+                    return (10 - ringNumber) / 1.6
+                }
+
+            }
+            return null
+        }
+
+        const drawCircles = (cursorPosX, cursorPosY) => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            for (let i = 0; i < (canvas.width - canvasPadding) / spaceForOneCircle - 1; i++) {
+                for (let j = 0; j < (canvas.height - canvasPadding) / spaceForOneCircle - 1; j++) {
+                    drawCircle(
+                        canvasPadding + i * spaceForOneCircle,
+                        canvasPadding + j * spaceForOneCircle,
+                        calcRadius(
+                            cursorPosX,
+                            cursorPosY,
+                            canvasPadding + i * spaceForOneCircle,
+                            canvasPadding + j * spaceForOneCircle
+                        ))
+                }
+            }
+        }
+
+
+        resizeCanvas()
+        drawCircles()
+
+        window.onresize = () => {
+            resizeCanvas()
+            drawCircles()
+        }
+
+        // redraw circles on mouse move
+        canvas.addEventListener('mousemove', e => {
+            drawCircles(e.clientX, e.clientY)
+        })
+    </script>
+</body>
+
+</html>

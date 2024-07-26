@@ -13,6 +13,7 @@ body {
   font-family: system-ui;
   color: #04091e;
   text-align: center;
+  /* cursor: none; */
 }
 
 .intro,
@@ -95,3 +96,24 @@ a:hover {
   border-radius: 38px;
   color: #f6f2e8;
 }
+
+
+
+/* cursor */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+h1:hover ~ .cursor {
+  transform: scale(6);
+  box-shadow: 0 0 10px #fff;
+  color: #000;
+}
+/* cursor */
