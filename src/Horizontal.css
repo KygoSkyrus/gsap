@@ -13,6 +13,7 @@ body {
   font-family: system-ui;
   color: #04091e;
   text-align: center;
+  scroll-behavior: smooth;
   /* cursor: none; */
 }
 
