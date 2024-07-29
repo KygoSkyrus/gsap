@@ -1,4 +1,6 @@
-/* demo */
+@tailwind base; /* Preflight will be injected here */
+@tailwind components;
+@tailwind utilities;
 
 * {
   outline: none;
@@ -90,7 +92,7 @@ a:hover {
 
 .horizontal .card {
   align-items: stretch;
-  width: 540px;
+  width: 100vw;
   padding: 50px 40px;
   background: #6e4ce1;
   border-radius: 38px;
@@ -117,3 +119,6 @@ h1:hover ~ .cursor {
   color: #000;
 }
 /* cursor */
+
+
+
