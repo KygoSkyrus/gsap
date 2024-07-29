@@ -20,12 +20,44 @@ import { PixiPlugin } from "gsap/PixiPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
 
 
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css'; // Import the Locomotive Scroll CSS
+
+
 // gsap.registerPlugin(useGSAP, Flip, ScrollTrigger, Observer, ScrollToPlugin, Draggable, MotionPathPlugin, EaselPlugin, PixiPlugin, TextPlugin, RoughEase, ExpoScaleEase, SlowMo, CustomEase);
 gsap.registerPlugin(ScrollTrigger);
 
 const HorizontalScroll = () => {
 
     useEffect(() => {
+
+        const pageContainer = document.querySelector("#container");
+        const locoScroll = new LocomotiveScroll({
+            el: pageContainer,
+            smooth: true,
+            multiplier: 1.5, // Adjust the speed as necessary
+        });
+
+        locoScroll.on('scroll', ScrollTrigger.update);
+        ScrollTrigger.scrollerProxy(pageContainer, {
+            scrollTop(value) {
+                return arguments.length
+                    ? locoScroll.scrollTo(value, 0, 0)
+                    : locoScroll.scroll.instance.scroll.y;
+            },
+            getBoundingClientRect() {
+                return {
+                    top: 0,
+                    left: 0,
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                };
+            },
+            pinType: pageContainer.style.transform ? 'transform' : 'fixed',
+        });
+
+        ScrollTrigger.addEventListener('refresh', () => locoScroll.update());
+        ScrollTrigger.refresh();
 
 
         // zoomin
@@ -43,6 +75,7 @@ const HorizontalScroll = () => {
                 start: "top top", // Start at top of Trigger and at the top of the viewport
                 end: "+=100% 50px", // The element is 500px height and end 50px from the top of the viewport
                 pin: true, // Pin the element true or false
+                scroller: '#container', // Use the Locomotive Scroll container
             }
         });
 
@@ -75,7 +108,8 @@ const HorizontalScroll = () => {
                     ease: "power4"  // "bounce"
                 },
                 scrub: true,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
+                scroller: '#container', // Use the Locomotive Scroll container
             },
             ease: "none"
         });
@@ -89,82 +123,81 @@ const HorizontalScroll = () => {
 
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            locoScroll.destroy();
         };
     }, [])
 
     return (
         <>
-            <div id="smooth-wrapper">
-                <div id="smooth-content">
-                    <div class="cursor"></div>
-                    {/* <section class="intro">
+            <div id="container">
+                <div class="cursor"></div>
+                {/* <section class="intro">
                 <h1>Horizontal Scrolling Cards with GSAP</h1>
                 <div class="cursor"></div>
             </section> */}
 
-                    <div className='bg bg-rose-400 h-screen self-center flex items-center justify-center overflow-hidden big'>
-                        <div className=' name-h '>
-                            <h2 className='max-sm:text-[11rem] text-[16rem] max-sm:leading-[11rem] leading-[16rem]' >
-                                DG
-                            </h2>
+                <div className='bg bg-rose-400 h-screen self-center flex items-center justify-center overflow-hidden big'>
+                    <div className=' name-h '>
+                        <h2 className='max-sm:text-[11rem] text-[16rem] max-sm:leading-[11rem] leading-[16rem]' >
+                            DG
+                        </h2>
 
-                            <section className='text-center font-thin mt-2 max-sm:tracking-[8px] tracking-[17px] relative right-[14px] max-sm:right-[-7px] text-[14px]'>WEB DEVELOPER</section>
-                        </div>
+                        <section className='text-center font-thin mt-2 max-sm:tracking-[8px] tracking-[17px] relative right-[14px] max-sm:right-[-7px] text-[14px]'>WEB DEVELOPER</section>
                     </div>
-
-                    <div className='bg bg-green-400 h-screen self-center relative'>
-                        <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
-                            <div class="outer">
-                                <div class="inner">This is Section 2</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <section id="horizontal-scoll">
-                        <div class="horizontal-scoll-wrapper">
-                            <div class="horizontal">
-                                <div>
-                                    <div class="card">
-                                        <h2>Card 1</h2>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="card">
-                                        <h2>Card 2</h2>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="card">
-                                        <h2>Card 3</h2>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="card">
-                                        <h2>Card 4</h2>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="card">
-                                        <h2>Card 5</h2>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="card">
-                                        <h2>Card 6</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <footer>
-                        <div>
-                            <h2>Credits</h2>
-                            <a href="https://www.humming.design" target="_blank">Humming</a>
-                            <a href="https://greensock.com" target="_blank">GSAP</a>
-                        </div>
-                    </footer>
                 </div>
+
+                <div className='bg bg-green-400 h-screen self-center relative'>
+                    <div className='absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]'>
+                        <div class="outer">
+                            <div class="inner">This is Section 2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <section id="horizontal-scoll">
+                    <div class="horizontal-scoll-wrapper">
+                        <div class="horizontal">
+                            <div>
+                                <div class="card">
+                                    <h2>Card 1</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <h2>Card 2</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <h2>Card 3</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <h2>Card 4</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <h2>Card 5</h2>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <h2>Card 6</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer>
+                    <div>
+                        <h2>Credits</h2>
+                        <a href="https://www.humming.design" target="_blank">Humming</a>
+                        <a href="https://greensock.com" target="_blank">GSAP</a>
+                    </div>
+                </footer>
             </div>
         </>
     )
