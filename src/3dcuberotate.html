@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .view {
+        position: absolute;
+        margin: 0 auto;
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        -o-perspective: 1000px;
+        perspective: 1000px;
+    }
+
+    .cube {
+        position: absolute;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transition: -webkit-transform 1s;
+        -moz-transition: -moz-transform 1s;
+        -o-transition: -o-transform 1s;
+        transition: transform 1s;
+    }
+
+    .image_background figure {
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+    .cube figure {
+        display: block;
+        position: absolute;
+        color: #f9f9fa;
+        text-align: center;
+        background-color: gray;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    .tent {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: .5;
+    }
+
+    .background_design {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .content {
+        position: relative;
+        z-index: 500;
+        height: auto;
+        width: 95%;
+        margin: 50% auto auto auto;
+    }
+</style>
+
+<body>
+
+    <section class="view" style="height: 773px; width: 986px;">
+        <div class="cube image_background" style="height: 773px; width: 986px; transform: translateZ(-386.5px);">
+            <figure class="front"
+                style="background: url('https://picsum.photos/600/500') rgb(223, 223, 223); height: 773px; width: 986px; transform: translateZ(386.5px);">
+                <div class="tent" style="opacity:.4;"></div>
+                <div class="row background_design">
+                    <div class="col-xs-4 col-md-4 background_design_left">
+                        <div class="background_design_red_box"></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4"></div>
+                    <div class="col-xs-4 col-md-4 background_design_right">
+                        <div class="background_design_blue_box"></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="big_text">
+                        WE CREATE
+                    </div>
+                    <div class="regular_text">
+                        Wave Link is a creative digital agency focused on providing results.
+                        With our creative expertise and your future in mind, let us show you the results.
+                    </div>
+                    <br><br>
+                    <a class="white_button" href="/website">
+                        WEBSITES | AS LOW AS $400
+                    </a>
+                    <div class="responsive_divider"></div>
+                    <a class="white_button" href="/mobileapp/">
+                        MOBILE APPS | AS LOW AS $700
+                    </a>
+                </div>
+            </figure>
+            <figure class="bottom"
+                style="background: url('https://picsum.photos/600/500') rgb(223, 223, 223); height: 773px; width: 986px; transform: rotateX(270deg) translateZ(386.5px);">
+                <div class="row background_design">
+                    <div class="col-xs-4 col-md-4 background_design_left">
+                        <div class="background_design_red_box"></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4"></div>
+                    <div class="col-xs-4 col-md-4 background_design_right">
+                        <div class="background_design_blue_box"></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="big_text">
+                        WE DESIGN
+                    </div>
+                    <div class="regular_text">
+                        With Wave Link your plans meet with our passion for design and your dreams match our dedication
+                        to providing unique, customized web/app design services that turns your vision into success.
+                    </div>
+                    <br><br>
+                    <a class="white_button" href="/marketing/">
+                        GRAPHICS | AS LOW AS $50/HOUR
+                    </a>
+                </div>
+            </figure>
+            <figure class="back"
+                style="background: url('https://picsum.photos/600/500') rgb(223, 223, 223); height: 773px; width: 986px; transform: rotateX(180deg) translateZ(386.5px);">
+                <div class="row background_design">
+                    <div class="col-xs-4 col-md-4 background_design_left">
+                        <div class="background_design_red_box"></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4"></div>
+                    <div class="col-xs-4 col-md-4 background_design_right">
+                        <div class="background_design_blue_box"></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="big_text">
+                        WE MARKET
+                    </div>
+                    <div class="regular_text">
+                        A great product is wasted if no one knows about it. Wave Link has experts who develop innovative
+                        strategies to help your product not only be seen, but sold.
+                    </div>
+                    <br><br>
+                    <a class="white_button" href="/marketing/">
+                        MARKETING | AS LOW AS $54/MONTH
+                    </a>
+                </div>
+            </figure>
+            <figure class="top"
+                style="background: url('https://picsum.photos/600/500') rgb(223, 223, 223); height: 773px; width: 986px; transform: rotateX(90deg) translateZ(386.5px);">
+                <div class="tent" style="opacity:.5;"></div>
+                <div class="row background_design">
+                    <div class="col-xs-4 col-md-4 background_design_left">
+                        <div class="background_design_red_box"></div>
+                    </div>
+                    <div class="col-xs-4 col-md-4"></div>
+                    <div class="col-xs-4 col-md-4 background_design_right">
+                        <div class="background_design_blue_box"></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="big_text">
+                        WE SOLVE
+                    </div>
+                    <div class="regular_text">
+                        Wave Link offers world class website/app maintenance and hosting to all of our clients.
+                        Skip the headaches and let our team keep your product up-and-running.
+                    </div>
+                    <br><br>
+                    <a class="white_button" href="/contact/">
+                        MAINTENANCE | AS LOW AS $50/MONTH
+                    </a>
+                </div>
+            </figure>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+    <script>
+        var currentIndex = 0;
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var isRotatingCube = false;
+
+        $(document).ready(function () {
+            renderCube();
+        });
+
+        $(window).resize(function () {
+            windowWidth = $(window).width();
+            windowHeight = $(window).height();
+            renderCube();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.keyCode == 38) {
+                rotateCubeUp();
+            } else if (e.keyCode == 40) {
+                rotateCubeDown();
+            }
+        }, false);
+
+        $('body').on('DOMMouseScroll mousewheel', function (event) {
+            if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta < 0) {
+                rotateCubeDown();
+            } else {
+                rotateCubeUp();
+            }
+        });
+
+        document.addEventListener('touchstart', handleTouchStart, false);
+        document.addEventListener('touchmove', handleTouchMove, false);
+        var xDown = null;
+        var yDown = null;
+
+        function handleTouchStart(evt) {
+            xDown = evt.touches[0].clientX;
+            yDown = evt.touches[0].clientY;
+        };
+
+        function handleTouchMove(evt) {
+            if (!xDown || !yDown) { return; }
+            var xUp = evt.touches[0].clientX;
+            var yUp = evt.touches[0].clientY;
+            var xDiff = xDown - xUp;
+            var yDiff = yDown - yUp;
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+                if (xDiff > 0) {
+                    rotateCubeDown();
+                } else {
+                    rotateCubeUp();
+                }
+            } else {
+                if (yDiff > 0) {
+                    rotateCubeDown();
+                } else {
+                    rotateCubeUp();
+                }
+            }
+            xDown = null;
+            yDown = null;
+        };
+
+        function renderCube() {
+            $('.cube').height(windowHeight); $('.cube').width(windowWidth);
+            $('.view').height(windowHeight); $('.view').width(windowWidth);
+            $('figure').height(windowHeight); $('figure').width(windowWidth);
+            $('.front').css({
+                'transform': 'translateZ(' + windowHeight / 2 + 'px)',
+                '-webkit-transform': 'translateZ(' + windowHeight / 2 + 'px)',
+                '-moz-transform': 'translateZ(' + windowHeight / 2 + 'px)'
+            });
+            $('.top').css({
+                'transform': 'rotateX(90deg) translateZ(' + windowHeight / 2 + 'px)',
+                '-webkit-transform': 'rotateX(90deg) translateZ(' + windowHeight / 2 + 'px)',
+                '-moz-transform': 'rotateX(90deg) translateZ(' + windowHeight / 2 + 'px)'
+            });
+            $('.back').css({
+                'transform': 'rotateX(180deg) translateZ(' + windowHeight / 2 + 'px)',
+                '-webkit-transform': 'rotateX(180deg) translateZ(' + windowHeight / 2 + 'px)',
+                '-moz-transform': 'rotateX(180deg) translateZ(' + windowHeight / 2 + 'px)'
+            });
+            $('.bottom').css({
+                'transform': 'rotateX(-90deg) translateZ(' + windowHeight / 2 + 'px)',
+                '-webkit-transform': 'rotateX(270deg) translateZ(' + windowHeight / 2 + 'px)',
+                '-moz-transform': 'rotateX(270deg) translateZ(' + windowHeight / 2 + 'px)'
+            });
+            $('.cube').css({
+                'transform': 'translateZ(-' + windowHeight / 2 + 'px)',
+                '-webkit-transform': 'translateZ(-' + windowHeight / 2 + 'px)',
+                '-moz-transform': 'translateZ(-' + windowHeight / 2 + 'px)'
+            });
+        }
+
+        function rotateCubeUp() {
+            if (!isRotatingCube) {
+                if (currentIndex == 0) { currentIndex = 3; } else { currentIndex--; }
+                rotateCube();
+            }
+        }
+
+        function rotateCubeDown() {
+            if (!isRotatingCube) {
+                if (currentIndex == 3) { currentIndex = 0; } else { currentIndex++; }
+                rotateCube();
+            }
+        }
+
+        function rotateCube() {
+            isRotatingCube = true;
+            switch (currentIndex) {
+                case 0:
+                    $('.cube').css({
+                        'transform': 'translateZ(-' + windowHeight / 2 + 'px)',
+                        '-webkit-transform': 'translateZ(-' + windowHeight / 2 + 'px)',
+                        '-moz-transform': 'translateZ(-' + windowHeight / 2 + 'px)'
+                    });
+                    break;
+                case 1:
+                    $('.cube').css({
+                        'transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(90deg)',
+                        '-webkit-transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(90deg)',
+                        '-moz-transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(90deg)'
+                    });
+                    break;
+                case 2:
+                    $('.cube').css({
+                        'transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(180deg)',
+                        '-webkit-transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(180deg)',
+                        '-moz-transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(180deg)'
+                    });
+                    break;
+                case 3:
+                    $('.cube').css({
+                        'transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(270deg)',
+                        '-webkit-transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(270deg)',
+                        '-moz-transform': 'translateZ(-' + windowHeight / 2 + 'px) rotateX(270deg)'
+                    });
+                    break;
+            }
+            setTimeout(function () {
+                isRotatingCube = false;
+            }, 1100);
+        }
+    </script>
+
+</body>
+</html>
