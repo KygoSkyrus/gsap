@@ -1,9 +1,11 @@
+import FibreThree from './FibreThree';
 import HorizontalScroll from './HorizontalScroll';
 
 function App() {
   return (
     <div className="App">
-      <HorizontalScroll />
+      {/* <HorizontalScroll /> */}
+      <FibreThree/>
     </div>
   );
 }
