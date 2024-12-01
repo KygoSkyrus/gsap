@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import './three.css'
 
 const Extract = () => {
 
