@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import shield from './models/shield.gltf'
+import shield from './models/shield.glb'
 import arc_reactor from './models/arc_reactor.glb'
 import './fibrethree.css'
 
