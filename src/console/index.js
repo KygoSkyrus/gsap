@@ -26,8 +26,11 @@ environment.dispose();
 let bee;
 let mixer;
 const loader = new GLTFLoader();
-loader.load('./../models/shield.glb',
+// loader.load('./../models/shield.glb',
+loader.load('./models/xbox_elite_controller.glb',
     function (gltf) {
+        
+        gltf.scale.setScalar(0.5);
         // adds light to the model otherise it will be all black
         gltf.scene.traverse(child => {
             if (child.material) {
