@@ -29,12 +29,12 @@ const loader = new GLTFLoader();
 // loader.load('./../models/shield.glb',
 loader.load('./models/xbox_elite_controller.glb',
     function (gltf) {
-        
-        gltf.scale.setScalar(0.5);
+        gltf.scene.scale.set(0.09,0.09,0.09);
+        console.log('gltf',gltf)
         // adds light to the model otherise it will be all black
         gltf.scene.traverse(child => {
             if (child.material) {
-                console.log('materia',child.material)
+                console.log('material',child.material)
                 //   child.material = new THREE.MeshPhongMaterial({ color: 0xffffff +  0.4 * 0xffffff });
                 // child.material = new THREE.MeshPhongMaterial({ color: 0x888888 + Math.random() * 0x888888 });
             }
